@@ -91,12 +91,8 @@ class AllProductsSection extends Component {
       apiStatus: apiStatusConstants.inProgress,
     })
     const jwtToken = Cookies.get('jwt_token')
-    const {
-      activeOptionId,
-      activeCategoryId,
-      searchInput,
-      activeRatingId,
-    } = this.state
+    const {activeOptionId, activeCategoryId, searchInput, activeRatingId} =
+      this.state
     const apiUrl = `https://apis.ccbp.in/products?sort_by=${activeOptionId}&category=${activeCategoryId}&title_search=${searchInput}&rating=${activeRatingId}`
     const options = {
       headers: {
@@ -127,22 +123,22 @@ class AllProductsSection extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="products-loader-container">
-      <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
+    <div className='products-loader-container'>
+      <Loader type='ThreeDots' color='#0b69ff' height='50' width='50' />
     </div>
   )
 
   renderFailureView = () => (
-    <div className="products-error-view-container">
+    <div className='products-error-view-container'>
       <img
-        src="https://assets.ccbp.in/frontend/react-js/nxt-trendz/nxt-trendz-products-error-view.png"
-        alt="all-products-error"
-        className="products-failure-img"
+        src='https://assets.ccbp.in/frontend/react-js/nxt-trendz/nxt-trendz-products-error-view.png'
+        alt='all-products-error'
+        className='products-failure-img'
       />
-      <h1 className="product-failure-heading-text">
+      <h1 className='product-failure-heading-text'>
         Oops! Something Went Wrong
       </h1>
-      <p className="products-failure-description">
+      <p className='products-failure-description'>
         We are having some trouble processing your request. Please try again.
       </p>
     </div>
@@ -157,27 +153,27 @@ class AllProductsSection extends Component {
     const shouldShowProductsList = productsList.length > 0
 
     return shouldShowProductsList ? (
-      <div className="all-products-container">
+      <div className='all-products-container'>
         <ProductsHeader
           activeOptionId={activeOptionId}
           sortbyOptions={sortbyOptions}
           changeSortby={this.changeSortby}
         />
-        <ul className="products-list">
+        <ul className='products-list'>
           {productsList.map(product => (
             <ProductCard productData={product} key={product.id} />
           ))}
         </ul>
       </div>
     ) : (
-      <div className="no-products-view">
+      <div className='no-products-view'>
         <img
-          src="https://assets.ccbp.in/frontend/react-js/nxt-trendz/nxt-trendz-no-products-view.png"
-          className="no-products-img"
-          alt="no products"
+          src='https://assets.ccbp.in/frontend/react-js/nxt-trendz/nxt-trendz-no-products-view.png'
+          className='no-products-img'
+          alt='no products'
         />
-        <h1 className="no-products-heading">No Products Found</h1>
-        <p className="no-products-description">
+        <h1 className='no-products-heading'>No Products Found</h1>
+        <p className='no-products-description'>
           We could not find any products. Try other filters.
         </p>
       </div>
@@ -230,7 +226,7 @@ class AllProductsSection extends Component {
     const {activeCategoryId, searchInput, activeRatingId} = this.state
 
     return (
-      <div className="all-products-section">
+      <div className='all-products-section'>
         <FiltersGroup
           searchInput={searchInput}
           categoryOptions={categoryOptions}
